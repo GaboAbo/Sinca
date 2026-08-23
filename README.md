@@ -1,5 +1,16 @@
 # Sinca-ETL
 
+## Setup
+
+Requires [uv](https://docs.astral.sh/uv/) and [git-lfs](https://git-lfs.com) (for `sinca.db`).
+
+```bash
+git lfs install
+uv sync                          # install dependencies
+uv run python -m analysis.compute # run the analysis pipeline -> analysis/results.json
+uv run jupyter lab                # open sinca.ipynb
+```
+
 ## English
 
 Extracts historical air-quality and meteorological data from Chile's [SINCA](https://sinca.mma.gob.cl)
@@ -30,3 +41,17 @@ en `sinca.ipynb`.
 - `sinca.ipynb` — notebook de análisis exploratorio.
 
 Ver `analysis/README.md` para el detalle de los módulos de datos y cómputo.
+
+## 日本語
+
+チリの[SINCA](https://sinca.mma.gob.cl)大気質・気象観測網から過去データを取得し(`sinca.py`)、
+ローカルのSQLiteデータベース(`sinca.db`、Git LFSで管理)に保存します。その後 `analysis/` で
+データを分析し、汚染トレンド、気象との相関、観測所の比較、翌日予測モデル、異常検知を計算して
+`analysis/results.json` に出力します。探索的な分析とグラフは `sinca.ipynb` にあります。
+
+- `sinca.py` — SINCAから観測所・データセットのメタデータを取得し、生のCSVデータをダウンロードします。
+- `analysis/data.py` — `sinca.db` を読み込み、pandasのDataFrameに整形します。
+- `analysis/compute.py` — 統計・機械学習パイプラインを実行し、`results.json` を書き出します。
+- `sinca.ipynb` — 探索的分析用ノートブック。
+
+詳細は `analysis/README.md` を参照してください。
