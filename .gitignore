@@ -1,1 +1,8 @@
 __pycache__/
+*.pyc
+.venv/
+.env
+.ipynb_checkpoints/
+.ruff_cache/
+.pytest_cache/
+analysis/results.json
