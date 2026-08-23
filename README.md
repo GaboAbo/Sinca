@@ -55,3 +55,7 @@ Ver `analysis/README.md` para el detalle de los módulos de datos y cómputo.
 - `sinca.ipynb` — 探索的分析用ノートブック。
 
 詳細は `analysis/README.md` を参照してください。
+
+## Credits
+
+`sinca.py` and `analysis/` (`data.py`, `compute.py`) were built with [Claude Code](https://claude.com/claude-code). The exploratory data analysis in `sinca.ipynb` is the author's own work.
